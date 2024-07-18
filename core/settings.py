@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rolepermissions',
+    'django_q',
     
     'users',
     'payments',
@@ -128,3 +129,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHORIZE_TRANSFER_ENDPOINT = 'https://run.mocky.io/v3/adb04dd9-2760-4f6e-a197-b5278938890c' #authorized
+# AUTHORIZE_TRANSFER_ENDPOINT = 'https://run.mocky.io/v3/0b15b65a-a806-42df-a6b4-e5c58d7f3e86' #unauthorized
+
+Q_CLUSTER = {  
+    "name": 'DjangoQ',
+    'workers': 4,
+    'timeout': 60,
+    'retry': 300,
+    'orm': 'default'
+}

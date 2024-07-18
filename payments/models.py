@@ -9,5 +9,5 @@ class Transactions(models.Model):
     payee = models.ForeignKey(User, on_delete=models.DO_NOTHING, editable=False, related_name='payee_user')
     date = models.DateTimeField(auto_now_add=True, editable=False)
     
-    def _str_(self):
+    def __str__(self):
         return f'from {self.payer.first_name} to {self.payee.first_name} - R$ {self.amount}'
